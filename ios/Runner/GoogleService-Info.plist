@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>519535179695-jm4npgcg20qqvkap5f32q664j9ui5rgk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.519535179695-jm4npgcg20qqvkap5f32q664j9ui5rgk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>519535179695-2d7map27vs6srm1dca7qinlg3o61l812.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAcmAKlheoQrV0-ZfxTN7sTbrhD9U878yQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>519535179695</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>th.co.jventures.agmx</string>
+	<key>PROJECT_ID</key>
+	<string>agm-jventures</string>
+	<key>STORAGE_BUCKET</key>
+	<string>agm-jventures.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:519535179695:ios:a5aceecc6c42235304e15a</string>
+	<key>DATABASE_URL</key>
+	<string>https://agm-jventures.firebaseio.com</string>
+</dict>
+</plist>

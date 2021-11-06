@@ -1,0 +1,4 @@
+
+<resources>
+    <string name="asset_statements" translatable="false">[{\"include\": \"https://jventuresagm.page.link/.well-known/assetlinks.json\"}]</string>
+</resources>
