@@ -146,7 +146,7 @@ class Meetings with ChangeNotifier {
         'X-Parse-Application-Id': '928f24ed35d8876dee76d0a5460ef078',
         'X-Parse-Session-Token': sessionToken,
       };
-      var response = await Http.post(url, headers: headers);
+      var response = await Http.post(Uri.parse(url), headers: headers);
       var body = json.decode(response.body);
       List<Meeting> meetingsList = [];
       List list = body['results'];

@@ -62,7 +62,8 @@ class _TermConcludePageState extends State<TermConcludePage> {
         'X-Parse-Session-Token': sessionToken,
       };
       var params = {"meetingId": meetingId};
-      await Http.post(url, body: jsonEncode(params), headers: headers);
+      await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       await Navigator.of(context).pushNamedAndRemoveUntil(
           HomePage.routeName, (Route<dynamic> route) => false);
     } catch (err) {

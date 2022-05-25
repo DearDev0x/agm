@@ -20,7 +20,6 @@ import './views/onloadProxyvote.dart';
 import './views/OTP/pinAccess.dart';
 import './views/OTP/pinVerify.dart';
 import './views/qrcode.dart';
-import './views/scanProxyVoter.dart';
 
 class Routing {
   // ignore: missing_return
@@ -104,11 +103,6 @@ class Routing {
       case OnloadProxy.routeName:
         return CupertinoPageRoute(
           builder: (_) => OnloadProxy(settings.arguments),
-          settings: settings,
-        );
-      case ScanProxyVoterPage.routeName:
-        return CupertinoPageRoute(
-          builder: (_) => ScanProxyVoterPage(settings.arguments),
           settings: settings,
         );
       case OldPasswordPage.routeName:

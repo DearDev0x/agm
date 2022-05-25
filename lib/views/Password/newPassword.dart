@@ -34,7 +34,8 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
       }
       var headers = {"X-Parse-Session-Token": _sessionToken};
       var params = {"pin": pin};
-      var response = await Http.post(url, body: params, headers: headers);
+      var response =
+          await Http.post(Uri.parse(url), body: params, headers: headers);
       var body = jsonDecode(response.body);
 
       if (body['status'] == 200) {

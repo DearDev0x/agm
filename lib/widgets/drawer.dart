@@ -27,7 +27,7 @@ class DrawerWidget extends StatelessWidget {
         "X-Parse-Session-Token": sessionToken,
         "content-type": "application/json",
       };
-      await Http.post(url, headers: headers);
+      await Http.post(Uri.parse(url), headers: headers);
       SharedPreferences prefs = await SharedPreferences.getInstance();
       // await prefs.remove('AgendarStateVote');
       // await prefs.remove('idCard');
@@ -160,7 +160,7 @@ class DrawerWidget extends StatelessWidget {
               bottom: 5,
               right: 10,
               child:
-                  const Text('V 1.1.5', style: TextStyle(color: Colors.white))),
+                  const Text('V 1.1.8', style: TextStyle(color: Colors.white))),
         ],
       ),
     );

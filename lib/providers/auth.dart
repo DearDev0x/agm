@@ -131,7 +131,7 @@ class Auth with ChangeNotifier {
         'X-API-KEY': 'P35QHlLqkVMVTqraaxeHQPDWfe1ysa4f',
         'x-parse-session-token': token
       };
-      var response = await Http.get(url, headers: headers);
+      var response = await Http.get(Uri.parse(url), headers: headers);
       var body = await json.decode(response.body);
       setEkycData(body);
     } catch (err) {

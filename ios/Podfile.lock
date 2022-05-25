@@ -1,88 +1,10 @@
 PODS:
   - Alamofire (4.9.1)
-  - clipboard_manager (0.0.3):
-    - Flutter
   - connectivity (0.0.1):
     - Flutter
     - Reachability
   - CryptoSwift (1.4.0)
-  - DKImagePickerController/Core (4.3.2):
-    - DKImagePickerController/ImageDataManager
-    - DKImagePickerController/Resource
-  - DKImagePickerController/ImageDataManager (4.3.2)
-  - DKImagePickerController/PhotoGallery (4.3.2):
-    - DKImagePickerController/Core
-    - DKPhotoGallery
-  - DKImagePickerController/Resource (4.3.2)
-  - DKPhotoGallery (0.0.17):
-    - DKPhotoGallery/Core (= 0.0.17)
-    - DKPhotoGallery/Model (= 0.0.17)
-    - DKPhotoGallery/Preview (= 0.0.17)
-    - DKPhotoGallery/Resource (= 0.0.17)
-    - SDWebImage
-    - SwiftyGif
-  - DKPhotoGallery/Core (0.0.17):
-    - DKPhotoGallery/Model
-    - DKPhotoGallery/Preview
-    - SDWebImage
-    - SwiftyGif
-  - DKPhotoGallery/Model (0.0.17):
-    - SDWebImage
-    - SwiftyGif
-  - DKPhotoGallery/Preview (0.0.17):
-    - DKPhotoGallery/Model
-    - DKPhotoGallery/Resource
-    - SDWebImage
-    - SwiftyGif
-  - DKPhotoGallery/Resource (0.0.17):
-    - SDWebImage
-    - SwiftyGif
   - DTTJailbreakDetection (0.4.0)
-  - file_picker (0.0.1):
-    - DKImagePickerController/PhotoGallery
-    - Flutter
-  - Firebase/CoreOnly (6.34.0):
-    - FirebaseCore (= 6.10.4)
-  - Firebase/MLVision (6.34.0):
-    - Firebase/CoreOnly
-    - FirebaseMLVision (~> 0.21.0)
-  - Firebase/MLVisionBarcodeModel (6.34.0):
-    - Firebase/CoreOnly
-    - FirebaseMLVisionBarcodeModel (~> 0.21.0)
-  - FirebaseCore (6.10.4):
-    - FirebaseCoreDiagnostics (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.7.0):
-    - GoogleDataTransport (~> 7.4)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-    - nanopb (~> 1.30906.0)
-  - FirebaseInstallations (1.7.0):
-    - FirebaseCore (~> 6.10)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
-    - PromisesObjC (~> 1.2)
-  - FirebaseMLCommon (0.21.0):
-    - FirebaseCore (~> 6.9)
-    - FirebaseInstallations (~> 1.5)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
-    - GoogleUtilities/UserDefaults (~> 6.0)
-    - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.12)
-  - FirebaseMLVision (0.21.0):
-    - FirebaseCore (~> 6.9)
-    - FirebaseMLCommon (~> 0.21)
-    - GoogleAPIClientForREST/Core (~> 1.3)
-    - GoogleAPIClientForREST/Vision (~> 1.3)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.12)
-  - FirebaseMLVisionBarcodeModel (0.21.0):
-    - FirebaseMLVision (~> 0.21)
   - Flutter (1.0.0)
   - flutter_jailbreak_detection (1.0.0):
     - DTTJailbreakDetection
@@ -90,13 +12,13 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - GoogleAPIClientForREST/Core (1.5.2):
-    - GTMSessionFetcher (>= 1.1.7)
-  - GoogleAPIClientForREST/Vision (1.5.2):
-    - GoogleAPIClientForREST/Core
-    - GTMSessionFetcher (>= 1.1.7)
   - GoogleDataTransport (7.5.1):
     - nanopb (~> 1.30906.0)
+  - GoogleMLKit/BarcodeScanning (0.64.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitBarcodeScanning (~> 0.64.0)
+  - GoogleMLKit/MLKitCore (0.64.0):
+    - MLKitCommon (~> 0.64.0)
   - GoogleToolboxForMac/DebugUtils (2.3.1):
     - GoogleToolboxForMac/Defines (= 2.3.1)
   - GoogleToolboxForMac/Defines (2.3.1)
@@ -115,13 +37,27 @@ PODS:
     - GoogleUtilities/Environment
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher (1.5.0):
-    - GTMSessionFetcher/Full (= 1.5.0)
+  - GoogleUtilitiesComponents (1.1.0):
+    - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.5.0)
-  - GTMSessionFetcher/Full (1.5.0):
-    - GTMSessionFetcher/Core (= 1.5.0)
-  - image_picker_saver (0.0.1):
-    - Flutter
+  - MLKitBarcodeScanning (0.64.0):
+    - MLKitCommon (~> 0.64)
+    - MLKitVision (~> 0.64)
+  - MLKitCommon (0.64.0):
+    - GoogleDataTransport (~> 7.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - GoogleUtilities/UserDefaults (~> 6.0)
+    - GoogleUtilitiesComponents (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - Protobuf (~> 3.12)
+  - MLKitVision (0.64.0):
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+    - MLKitCommon (~> 0.64)
+    - Protobuf (~> 3.12)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -129,176 +65,133 @@ PODS:
   - nanopb/encode (1.30906.0)
   - native_device_orientation (0.0.1):
     - Flutter
-  - path_provider (0.0.1):
+  - path_provider_ios (0.0.1):
     - Flutter
   - PromisesObjC (1.2.12)
   - Protobuf (3.17.0)
-  - qr_code_tools (0.0.1):
-    - Flutter
   - qr_mobile_vision (0.0.1):
-    - Firebase/MLVision
-    - Firebase/MLVisionBarcodeModel
     - Flutter
+    - GoogleMLKit/BarcodeScanning
   - Reachability (3.2)
-  - screen (0.0.1):
+  - shared_preferences_ios (0.0.1):
     - Flutter
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
-  - shared_preferences (0.0.1):
+  - sqflite (0.0.2):
     - Flutter
-  - sqflite (0.0.1):
-    - Flutter
-    - FMDB (~> 2.7.2)
+    - FMDB (>= 2.7.5)
   - ssl_pinning_plugin (0.0.1):
     - Alamofire (~> 4.7)
     - CryptoSwift
     - Flutter
-  - SwiftyGif (5.4.0)
   - uni_links (0.0.1):
     - Flutter
-  - url_launcher (0.0.1):
+  - url_launcher_ios (0.0.1):
     - Flutter
-  - video_player (0.0.1):
+  - video_player_avfoundation (0.0.1):
     - Flutter
   - wakelock (0.0.1):
     - Flutter
-  - webview_flutter (0.0.1):
+  - webview_flutter_wkwebview (0.0.1):
     - Flutter
 
 DEPENDENCIES:
-  - clipboard_manager (from `.symlinks/plugins/clipboard_manager/ios`)
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
-  - file_picker (from `.symlinks/plugins/file_picker/ios`)
   - Flutter (from `Flutter`)
   - flutter_jailbreak_detection (from `.symlinks/plugins/flutter_jailbreak_detection/ios`)
-  - image_picker_saver (from `.symlinks/plugins/image_picker_saver/ios`)
   - native_device_orientation (from `.symlinks/plugins/native_device_orientation/ios`)
-  - path_provider (from `.symlinks/plugins/path_provider/ios`)
-  - qr_code_tools (from `.symlinks/plugins/qr_code_tools/ios`)
+  - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
   - qr_mobile_vision (from `.symlinks/plugins/qr_mobile_vision/ios`)
-  - screen (from `.symlinks/plugins/screen/ios`)
-  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - ssl_pinning_plugin (from `.symlinks/plugins/ssl_pinning_plugin/ios`)
   - uni_links (from `.symlinks/plugins/uni_links/ios`)
-  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
-  - video_player (from `.symlinks/plugins/video_player/ios`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
   - wakelock (from `.symlinks/plugins/wakelock/ios`)
-  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - CryptoSwift
-    - DKImagePickerController
-    - DKPhotoGallery
     - DTTJailbreakDetection
-    - Firebase
-    - FirebaseCore
-    - FirebaseCoreDiagnostics
-    - FirebaseInstallations
-    - FirebaseMLCommon
-    - FirebaseMLVision
-    - FirebaseMLVisionBarcodeModel
     - FMDB
-    - GoogleAPIClientForREST
     - GoogleDataTransport
+    - GoogleMLKit
     - GoogleToolboxForMac
     - GoogleUtilities
+    - GoogleUtilitiesComponents
     - GTMSessionFetcher
+    - MLKitBarcodeScanning
+    - MLKitCommon
+    - MLKitVision
     - nanopb
     - PromisesObjC
     - Protobuf
     - Reachability
-    - SDWebImage
-    - SwiftyGif
 
 EXTERNAL SOURCES:
-  clipboard_manager:
-    :path: ".symlinks/plugins/clipboard_manager/ios"
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
-  file_picker:
-    :path: ".symlinks/plugins/file_picker/ios"
   Flutter:
     :path: Flutter
   flutter_jailbreak_detection:
     :path: ".symlinks/plugins/flutter_jailbreak_detection/ios"
-  image_picker_saver:
-    :path: ".symlinks/plugins/image_picker_saver/ios"
   native_device_orientation:
     :path: ".symlinks/plugins/native_device_orientation/ios"
-  path_provider:
-    :path: ".symlinks/plugins/path_provider/ios"
-  qr_code_tools:
-    :path: ".symlinks/plugins/qr_code_tools/ios"
+  path_provider_ios:
+    :path: ".symlinks/plugins/path_provider_ios/ios"
   qr_mobile_vision:
     :path: ".symlinks/plugins/qr_mobile_vision/ios"
-  screen:
-    :path: ".symlinks/plugins/screen/ios"
-  shared_preferences:
-    :path: ".symlinks/plugins/shared_preferences/ios"
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   ssl_pinning_plugin:
     :path: ".symlinks/plugins/ssl_pinning_plugin/ios"
   uni_links:
     :path: ".symlinks/plugins/uni_links/ios"
-  url_launcher:
-    :path: ".symlinks/plugins/url_launcher/ios"
-  video_player:
-    :path: ".symlinks/plugins/video_player/ios"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/ios"
   wakelock:
     :path: ".symlinks/plugins/wakelock/ios"
-  webview_flutter:
-    :path: ".symlinks/plugins/webview_flutter/ios"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  clipboard_manager: f4800834e62cc26b1cc4e0a92a35cd452dd8b827
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
-  DKImagePickerController: b5eb7f7a388e4643264105d648d01f727110fc3d
-  DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
   DTTJailbreakDetection: 5e356c5badc17995f65a83ed9483f787a0057b71
-  file_picker: 3e6c3790de664ccf9b882732d9db5eaf6b8d4eb1
-  Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
-  FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
-  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
-  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  FirebaseMLCommon: f42d067ca7fed962e09f02ba94a24e06ee50d933
-  FirebaseMLVision: fd7cdd33d067c976c16fd521e7e92c26c980c947
-  FirebaseMLVisionBarcodeModel: 394cd61c52dc03558088caf82b0dade8028f57d5
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_jailbreak_detection: f6c01e4bc73641c6b69c5112e50301240601abb4
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  GoogleAPIClientForREST: 538a8ad0014fd88b78894e77100775a6b0a4f7ed
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
+  GoogleMLKit: 3c1f895592d95625eb57b8e66d4f13a5d36f9b49
   GoogleToolboxForMac: 471e0c05d39506e50e6398f46fa9a12ae0efeff9
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  image_picker_saver: 4f28bd70e1efdca68ad88beab0f11d22cffe04f6
+  MLKitBarcodeScanning: 7b380e25719fb194292063e217c1ddbb0edbb506
+  MLKitCommon: dc2909c96dbf7f5a75b86a3d2fa1b92ff3f6a30b
+  MLKitVision: bd96ec12ea19d589435523c914766538da259161
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
-  native_device_orientation: e24d00be281de72996640885d80e706142707660
-  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  native_device_orientation: 3b4cfc9565a7b879cc4fde282b3e27745e852d0d
+  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
-  qr_code_tools: bd0c76036813e6251a1df7d130b9c366fe961444
-  qr_mobile_vision: b20aca10aa3f5d1651cb71efc09bfaea098df043
+  qr_mobile_vision: 308ef269e6bc257c05a4adf218e02afc2be09736
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  screen: abd91ca7bf3426e1cc3646d27e9b2358d6bf07b0
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
-  sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   ssl_pinning_plugin: 21775d400c46620cc8f6f473824a6362c1b257f8
-  SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
   uni_links: d97da20c7701486ba192624d99bffaaffcfc298a
-  url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
-  video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
-  wakelock: 0d4a70faf8950410735e3f61fb15d517c8a6efc4
-  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
+  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
+  video_player_avfoundation: e489aac24ef5cf7af82702979ed16f2a5ef84cff
+  wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
+  webview_flutter_wkwebview: 005fbd90c888a42c5690919a1527ecc6649e1162
 
-PODFILE CHECKSUM: a75497545d4391e2d394c3668e20cfb1c2bbd4aa
+PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

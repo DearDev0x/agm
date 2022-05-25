@@ -5,15 +5,15 @@ import 'dart:async';
 
 import '../providers/auth.dart';
 import '../widgets/layout.dart';
-import 'package:flushbar/flushbar.dart';
+// import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:convert/convert.dart';
-import 'package:image_picker_saver/image_picker_saver.dart';
+// import 'package:image_picker_saver/image_picker_saver.dart';
 
 class QrcodePage extends StatefulWidget {
   static const routeName = '/qrcode-read';
@@ -32,30 +32,30 @@ class _QrcodePageState extends State<QrcodePage> {
   GlobalKey screen = new GlobalKey();
 
   Future<void> _captureAndSharePng(BuildContext context) async {
-    try {
-      RenderRepaintBoundary boundary = screen.currentContext.findRenderObject();
-      var image = await boundary.toImage(pixelRatio: 1);
+    // try {
+    //   RenderRepaintBoundary boundary = screen.currentContext.findRenderObject();
+    //   var image = await boundary.toImage(pixelRatio: 1);
 
-      ByteData byteData =
-          await image.toByteData(format: ui.ImageByteFormat.png);
-      Uint8List pngBytes = byteData.buffer.asUint8List();
+    //   ByteData byteData =
+    //       await image.toByteData(format: ui.ImageByteFormat.png);
+    //   Uint8List pngBytes = byteData.buffer.asUint8List();
 
-      await ImagePickerSaver.saveFile(fileData: pngBytes).then((onValue) {
-        Flushbar(
-          margin: EdgeInsets.all(8),
-          borderRadius: 8,
-          message: "Saved QR Code to your Device!",
-          icon: Icon(
-            Icons.info_outline,
-            size: 28.0,
-            color: Colors.blue[300],
-          ),
-          duration: Duration(seconds: 3),
-        )..show(context);
-      });
-    } catch (e) {
-      print(e.toString());
-    }
+    //   await ImagePickerSaver.saveFile(fileData: pngBytes).then((onValue) {
+    //     Flushbar(
+    //       margin: EdgeInsets.all(8),
+    //       borderRadius: 8,
+    //       message: "Saved QR Code to your Device!",
+    //       icon: Icon(
+    //         Icons.info_outline,
+    //         size: 28.0,
+    //         color: Colors.blue[300],
+    //       ),
+    //       duration: Duration(seconds: 3),
+    //     )..show(context);
+    //   });
+    // } catch (e) {
+    //   print(e.toString());
+    // }
   }
 
   @override
@@ -92,23 +92,23 @@ class _QrcodePageState extends State<QrcodePage> {
           SizedBox(
             height: 20,
           ),
-          GestureDetector(
-            child: Column(
-              children: <Widget>[
-                Icon(
-                  Icons.save_alt,
-                  size: 35,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                const Text("Save to Device")
-              ],
-            ),
-            onTap: () {
-              _captureAndSharePng(context);
-            },
-          )
+          // GestureDetector(
+          //   child: Column(
+          //     children: <Widget>[
+          //       Icon(
+          //         Icons.save_alt,
+          //         size: 35,
+          //       ),
+          //       SizedBox(
+          //         height: 5,
+          //       ),
+          //       const Text("Save to Device")
+          //     ],
+          //   ),
+          //   onTap: () {
+          //     _captureAndSharePng(context);
+          //   },
+          // )
         ],
       ),
     );

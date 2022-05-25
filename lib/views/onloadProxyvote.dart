@@ -30,7 +30,7 @@ class _OnloadProxyState extends State<OnloadProxy> {
   StreamSubscription _subProxy;
   bool _loadingState = true;
   var clientDeploy =
-      Web3Client("https://rpc.dome.cloud", Client(), socketConnector: () {
+      Web3Client("https://rpc.xchain.asia", Client(), socketConnector: () {
     return IOWebSocketChannel.connect("wss://ws.tch.in.th").cast<String>();
   });
 
@@ -64,7 +64,7 @@ class _OnloadProxyState extends State<OnloadProxy> {
         'content-type': 'application/json',
         'X-Parse-Application-Id': '928f24ed35d8876dee76d0a5460ef078'
       };
-      var response = await Http.get(url, headers: headers);
+      var response = await Http.get(Uri.parse(url), headers: headers);
       var body = await json.decode(response.body);
 
       print('check proxy');
@@ -191,9 +191,9 @@ class _OnloadProxyState extends State<OnloadProxy> {
           contract: contract,
           function: addProxy,
           parameters: [proxyAddr],
-          maxGas: 1356000,
+          maxGas: 20000000,
           gasPrice: gasPrice2),
-      chainId: 7,
+      chainId: 35,
     );
   }
 
@@ -214,8 +214,8 @@ class _OnloadProxyState extends State<OnloadProxy> {
       var params = {
         "proxyAddress": proxyAddress,
       };
-      var response =
-          await Http.put(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.put(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       await json.decode(response.body);
 
       setState(() {

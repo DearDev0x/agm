@@ -46,8 +46,8 @@ class _TermVotePageState extends State<TermVotePage>
   bool _signed = false;
   final oCcy = new NumberFormat("#,##0", "en_US");
   var _clientVote =
-      Web3Client("https://rpc.dome.cloud", Client(), socketConnector: () {
-    return IOWebSocketChannel.connect("wss://ws.dome.cloud").cast<String>();
+      Web3Client("https://rpc.xchain.asia", Client(), socketConnector: () {
+    return IOWebSocketChannel.connect("wss://ws.xchain.asia").cast<String>();
   });
   String nowContract = "";
 
@@ -78,12 +78,14 @@ class _TermVotePageState extends State<TermVotePage>
 
         EtherAmount balance = await _clientVote.getBalance(address);
 
+        print('balance $balance');
+
         final EthereumAddress contractAddr =
             EthereumAddress.fromHex(contractAddress);
         final contract = DeployedContract(
             ContractAbi.fromJson(abiCode, 'Ballot'), contractAddr);
         final doVote = contract.function('doVote');
-        var gasPrice = EtherAmount.fromUnitAndValue(EtherUnit.gwei, 3);
+        var gasPrice = EtherAmount.fromUnitAndValue(EtherUnit.gwei, 10);
 
         var result = await _clientVote.sendTransaction(
           credentials,
@@ -91,9 +93,9 @@ class _TermVotePageState extends State<TermVotePage>
               contract: contract,
               function: doVote,
               parameters: [BigInt.from(vote)],
-              maxGas: 1356000,
+              maxGas: 500000,
               gasPrice: gasPrice),
-          chainId: 7,
+          chainId: 35,
         );
 
         final voteDone = contract.event('voteDone');
@@ -350,7 +352,8 @@ class _TermVotePageState extends State<TermVotePage>
         'X-Parse-Session-Token': sessionToken
       };
       var params = {'contractAddress': contractAddress, 'status': status};
-      await Http.post(url, body: jsonEncode(params), headers: headers);
+      await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       print('success keep log');
     } catch (err) {
       print('error');
@@ -378,12 +381,14 @@ class _TermVotePageState extends State<TermVotePage>
 
       EtherAmount balance = await _clientVote.getBalance(address);
 
+      print('balance $balance');
+
       final EthereumAddress contractAddr =
           EthereumAddress.fromHex(contractAddress);
       final contract = DeployedContract(
           ContractAbi.fromJson(abiCode, 'Ballot'), contractAddr);
       final sign = contract.function('sign');
-      var gasPrice = EtherAmount.fromUnitAndValue(EtherUnit.gwei, 3);
+      var gasPrice = EtherAmount.fromUnitAndValue(EtherUnit.gwei, 10);
 
       var result = await _clientVote.sendTransaction(
         credentials,
@@ -391,9 +396,9 @@ class _TermVotePageState extends State<TermVotePage>
             contract: contract,
             function: sign,
             parameters: [],
-            maxGas: 1356000,
+            maxGas: 500000,
             gasPrice: gasPrice),
-        chainId: 7,
+        chainId: 35,
       );
       final signDone = contract.event('signDone');
       var _signDoneSubscription = _clientVote

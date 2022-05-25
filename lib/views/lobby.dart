@@ -80,9 +80,16 @@ class _LobbyPageState extends State<LobbyPage> {
                 type: 'error',
                 header: 'Failed !',
                 subtitle: 'You can\'t rights to vote.',
-                done: () async {},
+                done: () async {
+                  Navigator.of(context).pop();
+                },
               ));
     });
+  }
+
+  Future<void> launchURL(String url) async {
+    if (!await launch(url, forceSafariVC: false, forceWebView: false))
+      throw 'Could not launch $url';
   }
 
   Future<void> gotoIdp() async {
@@ -99,19 +106,21 @@ class _LobbyPageState extends State<LobbyPage> {
     });
     var url =
         'https://jfinwallet.page.link/requestIdP?callback_url=$callback&purpose=$purpose&sender=$sender&hashId=$hashId&rpId=$requestId';
-    if (await canLaunch(url)) {
-      await launch(url, forceSafariVC: false, forceWebView: false);
-    } else {
+    try {
+      await launchURL(url);
+    } catch (err) {
       await showDialog(
-          context: context,
-          builder: (_) => DialogAlert(
-                type: 'error',
-                header: 'Failed !',
-                subtitle: 'You can\'t rights to vote.',
-                done: () {
-                  _loadingState = false;
-                },
-              ));
+        context: context,
+        builder: (_) => DialogAlert(
+          type: 'error',
+          header: 'Failed !',
+          subtitle: err.toString(),
+          done: () {
+            Navigator.pop(context);
+            _loadingState = false;
+          },
+        ),
+      );
     }
   }
 
@@ -131,8 +140,8 @@ class _LobbyPageState extends State<LobbyPage> {
         'X-Parse-Session-Token': sessionToken,
       };
       var params = {'meetingId': widget.setting['meetingId']};
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       var body = json.decode(response.body);
       liveness = body['liveness'];
       if (body['results'] == null || body['results'].toList().length == 0) {
@@ -197,8 +206,8 @@ class _LobbyPageState extends State<LobbyPage> {
         'X-Parse-Session-Token': sessionToken
       };
       var params = {"meetingId": meetingId};
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       var body = json.decode(response.body);
       return body['results'][0];
     } catch (err) {
@@ -277,7 +286,7 @@ class _LobbyPageState extends State<LobbyPage> {
         "type": "2",
         "meetingId": widget.setting['meetingId']
       };
-      var response = await Http.post(url, body: params);
+      var response = await Http.post(Uri.parse(url), body: params);
       var body = await json.decode(response.body);
       return body['request_id'];
     } catch (err) {
@@ -344,8 +353,8 @@ class _LobbyPageState extends State<LobbyPage> {
         "email": _initValueEmail,
         "meetingId": widget.setting['meetingId']
       };
-      var response =
-          await Http.post(url, body: json.encode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: json.encode(params), headers: headers);
       var body = json.decode(response.body);
       return body['otp_ref'] ?? '';
     } catch (err) {
@@ -374,7 +383,8 @@ class _LobbyPageState extends State<LobbyPage> {
         "email": _initValueEmail,
         "meetingId": widget.setting['meetingId']
       };
-      await Http.post(url, body: json.encode(params), headers: headers);
+      await Http.post(Uri.parse(url),
+          body: json.encode(params), headers: headers);
       print("success updated email");
     } catch (err) {
       print(err);

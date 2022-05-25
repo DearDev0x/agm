@@ -74,8 +74,8 @@ class _HomePageState extends State<HomePage> {
         'X-Parse-Session-Token': sessionToken
       };
       var params = {"address": address};
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       await json.decode(response.body);
       print('added gas');
     } catch (err) {}
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
         'content-type': 'application/json',
         "X-Parse-Application-Id": "928f24ed35d8876dee76d0a5460ef078",
       };
-      var response = await Http.get(url, headers: headers);
+      var response = await Http.get(Uri.parse(url), headers: headers);
       var body = json.decode(response.body);
       if (body['statusCode'] != 200) {
         throw 400;

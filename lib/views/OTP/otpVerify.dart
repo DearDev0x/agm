@@ -113,8 +113,8 @@ class _OtpVerifyPageState extends State<OtpVerifyPage> {
         'X-API-KEY': 'OTPJFINzM8L6ZCmbIvce1BAFwihvDf3BF'
       };
       var params = {'phone_no': phoneNo};
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       var body = json.decode(response.body);
       if ((body['status_code']) == 200) {
         setState(() {
@@ -181,8 +181,8 @@ class _OtpVerifyPageState extends State<OtpVerifyPage> {
       'X-API-KEY': 'OTPJFINzM8L6ZCmbIvce1BAFwihvDf3BF'
     };
     var params = {'phone_no': phoneNo, 'otp_ref': otpRef, 'otp': _initValueOtp};
-    var response =
-        await Http.post(url, body: jsonEncode(params), headers: headers);
+    var response = await Http.post(Uri.parse(url),
+        body: jsonEncode(params), headers: headers);
     var body = await json.decode(response.body);
     if ((body['status_code']) == 200) {
       return await body['access_token'];
@@ -207,8 +207,8 @@ class _OtpVerifyPageState extends State<OtpVerifyPage> {
         "paa": {"id": phoneNo, "access_token": accessToken}
       }
     };
-    var response =
-        await Http.post(url, body: jsonEncode(params), headers: headers);
+    var response = await Http.post(Uri.parse(url),
+        body: jsonEncode(params), headers: headers);
     var body = await json.decode(response.body);
     return body['sessionToken'];
   }

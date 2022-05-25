@@ -213,7 +213,7 @@ class JailPage extends StatelessWidget {
             Positioned(
                 bottom: 5,
                 right: 10,
-                child: Text('V 1.1.5', style: TextStyle(color: Colors.grey))),
+                child: Text('V 1.1.8', style: TextStyle(color: Colors.grey))),
           ],
         ),
       ),

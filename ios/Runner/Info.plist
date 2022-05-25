@@ -35,6 +35,11 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>https</string>
+		<string>http</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>we want to access camera for scan barcode</string>
 	<key>NSLocationAlwaysUsageDescription</key>

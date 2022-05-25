@@ -30,8 +30,8 @@ class TermWaitPage extends StatefulWidget {
 class _TermWaitPageState extends State<TermWaitPage>
     with WidgetsBindingObserver {
   var _client =
-      Web3Client("https://rpc.dome.cloud", Client(), socketConnector: () {
-    return IOWebSocketChannel.connect("wss://ws.dome.cloud").cast<String>();
+      Web3Client("https://rpc.xchain.asia", Client(), socketConnector: () {
+    return IOWebSocketChannel.connect("wss://ws.xchain.asia").cast<String>();
   });
   String abiCode;
   bool _isInit = true;
@@ -112,6 +112,7 @@ class _TermWaitPageState extends State<TermWaitPage>
 
   Future<void> startWaitProcess(String contractAddress) async {
     var check = await checkAgendar(contractAddress);
+    print(check);
     if (check.toString() == '[1]') {
       await Future.delayed(const Duration(milliseconds: 500));
       await Navigator.of(context).pushNamedAndRemoveUntil(
@@ -338,6 +339,7 @@ class _TermWaitPageState extends State<TermWaitPage>
     try {
       print('refresh...');
       var check = await checkAgendar(nowContract);
+      print(check);
       if (check.toString() == '[1]') {
         _isEnd = true;
         await Navigator.of(context).pushNamedAndRemoveUntil(

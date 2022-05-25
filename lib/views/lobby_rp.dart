@@ -102,8 +102,8 @@ class _LobbyRpPageState extends State<LobbyRpPage> {
         "voter_address": voterAddress,
         "meetingId": widget.setting['meetingId']
       };
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       var body = await json.decode(response.body);
       print('add voter');
       print('end add voter');
@@ -128,6 +128,11 @@ class _LobbyRpPageState extends State<LobbyRpPage> {
     });
   }
 
+  Future<void> launchURL(String url) async {
+    if (!await launch(url, forceSafariVC: false, forceWebView: false))
+      throw 'Could not launch $url';
+  }
+
   Future<void> _gotoIdp() async {
     setState(() {
       _loadingState = true;
@@ -141,21 +146,7 @@ class _LobbyRpPageState extends State<LobbyRpPage> {
       var requestId = await _requestRP();
       var url =
           'https://jfinwallet.page.link/requestIdP?callback_url=$callback&purpose=$purpose&sender=$sender&hashId=$hashId&rpId=$requestId';
-      if (await canLaunch(url)) {
-        await launch(url, forceSafariVC: false, forceWebView: false);
-      } else {
-        await showDialog(
-            context: context,
-            builder: (_) => DialogAlert(
-                  type: 'error',
-                  header: 'Failed !',
-                  subtitle: 'You can\'t rights to vote.',
-                  done: () {
-                    Navigator.pop(context);
-                    _loadingState = false;
-                  },
-                ));
-      }
+      await launchURL(url);
     } catch (err) {
       if (err == 512) {
         await showDialog(
@@ -171,16 +162,17 @@ class _LobbyRpPageState extends State<LobbyRpPage> {
                 ));
       } else {
         await showDialog(
-            context: context,
-            builder: (_) => DialogAlert(
-                  type: 'error',
-                  header: 'Failed !',
-                  subtitle: 'You can\'t rights to vote.',
-                  done: () {
-                    Navigator.pop(context);
-                    _loadingState = false;
-                  },
-                ));
+          context: context,
+          builder: (_) => DialogAlert(
+            type: 'error',
+            header: 'Failed !',
+            subtitle: 'You can\'t rights to vote.',
+            done: () {
+              Navigator.pop(context);
+              _loadingState = false;
+            },
+          ),
+        );
       }
     }
     setState(() {
@@ -206,7 +198,7 @@ class _LobbyRpPageState extends State<LobbyRpPage> {
         "type": "1",
         "meetingId": widget.setting['meetingId']
       };
-      var response = await Http.post(url, body: params);
+      var response = await Http.post(Uri.parse(url), body: params);
       var body = await json.decode(response.body);
       return body['request_id'];
     } catch (err) {

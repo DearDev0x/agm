@@ -46,8 +46,8 @@ class _TermServicePageState extends State<TermServicePage> {
         'X-API-KEY': 'OTPJFINzM8L6ZCmbIvce1BAFwihvDf3BF'
       };
       var params = {'phone_no': phoneNo};
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       var body = json.decode(response.body);
       if ((body['status_code']) == 200) {
         var otpRef = body['data']['otp_ref'];
@@ -113,7 +113,7 @@ class _TermServicePageState extends State<TermServicePage> {
         'content-type': 'application/json',
         "X-Parse-Application-Id": "928f24ed35d8876dee76d0a5460ef078",
       };
-      var response = await Http.get(url, headers: headers);
+      var response = await Http.get(Uri.parse(url), headers: headers);
       var body = json.decode(response.body);
       if (body['statusCode'] != 200) {
         throw 400;
@@ -162,8 +162,8 @@ class _TermServicePageState extends State<TermServicePage> {
         "note1": "",
         "note2": ""
       };
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       var body = json.decode(response.body);
       print('body post consent');
       print(body);

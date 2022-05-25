@@ -76,8 +76,8 @@ class _LobbyOtpPageState extends State<LobbyOtpPage> {
         "email": widget.setting['email'],
         "meetingId": widget.setting['meetingId'],
       };
-      var response =
-          await Http.post(url, body: json.encode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: json.encode(params), headers: headers);
       var body = json.decode(response.body);
 
       return body['otp_ref'];
@@ -167,8 +167,8 @@ class _LobbyOtpPageState extends State<LobbyOtpPage> {
         "otp": _initValueOtp,
         "meetingId": widget.setting['meetingId']
       };
-      var response =
-          await Http.post(url, body: json.encode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: json.encode(params), headers: headers);
       var body = json.decode(response.body);
 
       if (body['success'] != null && body['success'] == true) {

@@ -59,7 +59,8 @@ class _PinVerifyPageState extends State<PinVerifyPage> {
       }
       var headers = {"X-Parse-Session-Token": _sessionToken};
       var params = {"pin": pin};
-      var response = await Http.post(url, body: params, headers: headers);
+      var response =
+          await Http.post(Uri.parse(url), body: params, headers: headers);
       var body = jsonDecode(response.body);
 
       if (body['status'] == 200) {
@@ -136,7 +137,7 @@ class _PinVerifyPageState extends State<PinVerifyPage> {
         'X-Parse-Application-Id': '928f24ed35d8876dee76d0a5460ef078',
         'X-Parse-Session-Token': _sessionToken,
       };
-      await Http.post(url, headers: headers);
+      await Http.post(Uri.parse(url), headers: headers);
     } catch (err) {
       print(err);
       print('error');
@@ -157,7 +158,8 @@ class _PinVerifyPageState extends State<PinVerifyPage> {
         'X-Parse-Session-Token': _sessionToken
       };
       var params = {'status': status};
-      await Http.post(url, body: jsonEncode(params), headers: headers);
+      await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       print('success keep log');
     } catch (err) {
       print(err);
@@ -259,7 +261,7 @@ class _PinVerifyPageState extends State<PinVerifyPage> {
       "X-Parse-Session-Token": _sessionToken,
       "content-type": "application/json"
     };
-    var response = await Http.get(url, headers: headers);
+    var response = await Http.get(Uri.parse(url), headers: headers);
     var body = await json.decode(response.body);
     return body;
   }
@@ -278,8 +280,8 @@ class _PinVerifyPageState extends State<PinVerifyPage> {
         "X-Parse-Session-Token": _sessionToken,
       };
       var params = {"voter_address": voterAddress};
-      var response =
-          await Http.post(url, body: jsonEncode(params), headers: headers);
+      var response = await Http.post(Uri.parse(url),
+          body: jsonEncode(params), headers: headers);
       await json.decode(response.body);
     } catch (err) {
       print(err);
